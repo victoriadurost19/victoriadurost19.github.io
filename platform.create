@@ -1,0 +1,6 @@
+platform.create(400,460)
+collectable.create(type.steve, 200, 170, 6, 0.7);
+cannon.create.onTop(450);
+cannon.create.onBottom(400);
+cannon.create.onLeft(350);
+cannon.create.onRight(300); 
