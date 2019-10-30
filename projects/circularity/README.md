@@ -22,9 +22,8 @@ Also at: http://bit.ly/op-spark-circularity
       - [TODO 2 : Create a function to draw a circle](#todo-2--create-a-function-to-draw-a-circle)
       - [TODO 3 : Draw 3 circles!](#todo-3--draw-3-circles!)
       - [TODO 4 : Move your circles](#todo-4--move-your-circles)
-    - [Animate Our Circles](#animate-our-circles)
       - [TODO 5 : Keep your circles in the screen](#todo-5--keep-your-circles-in-the-screen)
-      - [TODO 6 : Take a break!](#todo-6--take-a-break!)
+      - [TODO 6 : Take a break!](#todo-6--take-a-break)
       - [TODO 7 : Draw 100 circles](#todo-7--draw-100-circles)
       - [TODO 8 : Iterate over the array](#todo-8--Iterate-over-the-array)
       - [TODO 9 : Move all our circles and keep them all in bounds](#todo-9--move-all-our-circles-and-keep-them-all-in-bounds)
@@ -144,46 +143,69 @@ Every programming language comes with features built-in to help you implement re
 
 Loops are a great tool to repeat a `{ code block }` a specific number of times and JavaScript comes with a number of built in loops, like `for`, `for-in`, and `while`. Additionally, many 3rd party libraries, like <a href="https://lodash.com/">_lodash_</a>, have implementations of other types of loops. We're going to use the `while` and `for` loops to accomplish our tasks for this project. 
 
+To repeatedly execute some code using a loop, we answer 3 questions:
+
+**1. What do we want to repeat?**
+**2. What changes from loop to loop?**
+**3. How long will the loop run?**
+
 ### While Loops
-Let's start with a `while` loop. To get a while loop to run 100 times we may write something like this:
+Let's start with a `while` loop. Suppose I wanted to print the messages `"pushups done: 1"`, `"pushups done: 2"`, and so on until a final message of `"pushups done: 10"`. To *hard-code* this, we could write:
+
+```javascript
+console.log("pushups done: 1");
+console.log("pushups done: 2");
+//... so on
+console.log("pushups done: 10");
+```
+
+To do this using a loop we need answers to the 3 questions:
+
+**Question 1. What do we want to repeat?** `console.log()` a message about how many pushups we've done.
+
+**Question 2. What changes from loop to loop?** The number of pushups that we've done
+
+**Question 3. How long will the loop run?** Until we've done 10 pushups
+
+Using a `while` loop, we can accomplish this in only 4 lines of code, rather than 10
 
 ````javascript
-var count = 0;
-while(count < 100) {
-    // code you want repeated
-    count++;
+// use a Variable to keep track of how many pushups have been done
+var pushupsDone = 1;
+
+// Keep repeating while (as long as) pushupsDone is less than or equal to 10
+while(pushupsDone <= 10) {
+
+	// use the Variable `pushupsDone` instead of a hard coded Number
+	console.log("pushups done: " + pushupsDone);	
+
+	// increase `pushupsDone` after each repetition
+	pushupsDone = pushupsDone + 1;						
 }
 ````
 
-A `while` loop runs as long as a **condition** is `true`, stopping once the condition becomes `false`. In the example above, 
-the loop runs while `count < 100`. This loops make use of a **counter variable** which keeps track of the number of loops that have been completed. When using a counter variable we must first *instantiate* it before the loop: `var count = 0;` and then *update* it within the loop: `count++;`. On each repitition of the loop, the counter variable will increment (increase by 1) until it reaches 100 at which point the condition will evaluate to `false` and the loop will stop!
-
-Failing to update a counter variable within a loop results in an **infinite loop** - a loop whose condition is forever `true` and therefore never stops. Creating an infinite loop consumes all available memory as the program runs and ultimately will crash the program. **This is bad**. 
+How would you modify this loop so that it does `100` pushups instead of just `10`?
 
 ### For Loops
-Another kind of loop we will use is the `for` loop. The for loops takes the counting pattern used in the previous example and condenses it into one line. To create a for loop that runs 100 times we may write something like this:
+Another kind of loop we will use is the `for` loop. The for loops takes the components of a while loop pattern used in the previous example and condenses it into one line. To create a for loop that runs 100 times we may write something like this:
 
 ````javascript
-for (var i = 0; i < 100; i++) {
-    console.log(i);
+for(var pushupsDone = 1; pushupsDone <= 10; pushupsDone++) {
+	console.log("pushups done: " + pushupsDone);	
 }
 ````
 
 After the keyword `for` are parentheses where you setup your for loop. Here is where you define how the loops starts, when it ends, and how you want to move on from one loop to the next. There are three parts to it:
 
-* **initialization** : `var i = 0;`
-	* a variable `i` is initialized to act as a counter to keep track of how many times we have run our loop. We start at 0.
-* **stop condition** : `i < 100;`
-	* This statement is the condition against which we check on each loop. If `i` is less than 100, the code block for the loop will execute.
+* **initialization** : `var pushupsDone = 1;`
+	* a variable `pushupsDone` is initialized to act as a counter to keep track of how many times we have run our loop. We start at 0.
+* **stop condition** : `pushupsDone <= 10`
+	* This statement is the condition against which we check on each loop. If `pushupsDone` is less than or equal to `10`, the code block for the loop will execute.
 * **post condition** : `i++;`
-	* This statement _increments_ (adds 1 to) the `i` variable and is executed after each run of the loop.
-	* NOTE: `i++;` is shorthand for `i = i + 1;`, and you'll see the `++` or `--` operators used often in code to accomplish this type of pattern.
+	* This statement _increments_ (adds 1 to) the `pushupsDone` variable and is executed after each run of the loop.
+	* NOTE: `pushupsDone++;` is shorthand for `pushupsDone = pushupsDone + 1;`, and you'll see the `++` or `--` operators used often in code to accomplish this type of pattern.
 
-Finally, we have our code block within the braces `{ }`.
-
-When all of these are put together our for loop will execute the code block as long as the `i` variable is less than 100. The `i` variable starts at 0 and, because we increment it after each loop, will increase until the stop condition is no longer true - at which point the loop will stop. 
-
-So then, looking at the above snippet of code, what would be the result of running that code? How is the for loop similar and/or different from a while loop?
+Finally, we have our code block within the braces `{ }` which contains the code that we want to repeat, along with the variable that will change from loop to loop.
 
 ### Iterating over an Array
 
@@ -241,21 +263,18 @@ var circles = [];	// variable to store all circles in one Array
 
 We will want to draw many circles in this project so putting the code to draw one circle inside a **function** will make the code much more re-usable! We've created a variable for you called `drawCircle` to hold our function. 
 
-Modify the code under **TODO: 2** and assign `drawCircle` to a function with the following code block:
+Under **TODO: 2** declare a Function `drawCircle`. It should have no Parameters. When called, it should execute the sequence below for creating and drawing a randomly sized `circle` and giving it a random velocity.
 
 ````javascript
-// TODO 2: Draw a circle //
-function drawCircle() {
-    circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
-    physikz.addRandomVelocity(circle, canvas);
-    view.addChild(circle);
-    circles.push(circle);
-}
-// other code...
+// Code to draw a circle
+circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
+physikz.addRandomVelocity(circle, canvas);
+view.addChild(circle);
+circles.push(circle);
 
 ````
 
-##### What does this function actually do?
+##### What does this code actually do?
 
 First we call a function from the `draw` library: a collection of functions that allow us to draw various shapes on our `canvas`. This method, `draw.randomCircleInArea` will draw a circle of random size, color, and location within the screen along with a few other settings. Check out the parameters of the function below:
 
@@ -269,10 +288,10 @@ Lastly we save each new circle in an array using the `.push()` method. Doing so 
 
 #### TODO 3 : Draw 5 circles!
 
-Now, Call this function: You can call the function using the following syntax:
+Now, call your new Function: You can call the function using the following syntax:
 
 ```javascript
-functionName(<arguments go here if the function has parameters>);
+functionCallName();
 ```
 
 ##### Save your code, Refresh your game
