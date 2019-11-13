@@ -13,7 +13,7 @@
             , opacity: 0.25 // Opacity of the lines
             , rotate: 0 // The rotation offset
             , direction: 1 // 1: clockwise, -1: counterclockwise
-            , speed: 1 // Rounds per second
+            , speed: 0.5 // Rounds per second
             , trail: 60 // Afterglow percentage
             , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
             , zIndex: 2e9 // The z-index (defaults to 2000000000)
