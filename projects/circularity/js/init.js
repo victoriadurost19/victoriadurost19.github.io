@@ -52,19 +52,19 @@ var init = function (window) {
                 circle.x = 0;
             } 
             // TODO 5a) if the circle has gone past of the LEFT side of the screen then place it on the RIGHT
-            else if ( / * Fill me in! * / ) {
-              
+            else if ( circle.x > canvas.width) {
+              circle.x = 1;
                 
             } 
 
             // TODO 5b) if the circle has gone past of the TOP side of the screen then place it on the BOTTOM
-            if ( / * Fill me in! * / ) {
-
+            if (circle.y > canvas. width ) {
+            circle.y = 2;
                 
             }
             // TODO 5c) if the circle has gone past of the BOTTOM side of the screen then place it OFF-SCREEN TOP
-            else if ( / * Fill me in! * / ) {
-           
+            else if (circle.y >canvas. width ) {
+            circle.y = 3;           
             
             }
             // YOUR TODO 5 CODE ENDS HERE //////////////////////////

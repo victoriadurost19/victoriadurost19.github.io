@@ -1,3 +1,4 @@
+/*eslint-disable no-extra-parens, no-undef*/
 (function (window) {
     'use strict';
     
