@@ -8,7 +8,7 @@ var init = function (window) {
         app = window.opspark.makeApp(),
         canvas = app.canvas, 
         view = app.view,
-        fps = draw.fps('#000');
+        fps = draw.fps('#eb34e1');
         
     
     window.opspark.makeGame = function() {
@@ -27,7 +27,7 @@ var init = function (window) {
 
         // TODO 2 : Create a function that draws a circle 
         function drawCircle() {
-            circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
+            circle = draw.randomCircleInArea(canvas, true, true, '#eb34e1', 2);
             physikz.addRandomVelocity(circle, canvas, 1, 1);
             view.addChild(circle);
             circles.push(circle);
@@ -40,8 +40,14 @@ var init = function (window) {
         drawCircle();
         drawCircle();
         drawCircle();
-        
- 
+        drawCircle();
+        drawCircle();
+        drawCircle();
+        drawCircle();
+        drawCircle();
+        drawCircle();
+        drawCircle();
+        drawCircle();
         view.addChild(fps);
         app.addUpdateable(fps);
     
@@ -78,7 +84,14 @@ var init = function (window) {
             physikz.updatePosition(circles[2]);
             physikz.updatePosition(circles[3]);
             physikz.updatePosition(circles[4]);
-
+            physikz.updatePosition(circles[5]);
+            physikz.updatePosition(circles[6]);
+            physikz.updatePosition(circles[7]);
+            physikz.updatePosition(circles[8]);
+            physikz.updatePosition(circles[9]);
+            physikz.updatePosition(circles[10]);
+            physikz.updatePosition(circles[11]);
+            physikz.updatePosition(circles[12]);
     
         
             // TODO 5 : Call game.checkCirclePosition on your circles.
@@ -87,7 +100,14 @@ var init = function (window) {
             game.checkCirclePosition(circles[2]);
             game.checkCirclePosition(circles[3]);
             game.checkCirclePosition(circles[4]);
-
+            game.checkCirclePosition(circles[5]);
+            game.checkCirclePosition(circles[6]);
+            game.checkCirclePosition(circles[7]);
+            game.checkCirclePosition(circles[8]);
+            game.checkCirclePosition(circles[9]);
+            game.checkCirclePosition(circles[10]);
+            game.checkCirclePosition(circles[11]);
+            game.checkCirclePosition(circles[12]);
         }
         
         ////////////////////////////////////////////////////////////////////
