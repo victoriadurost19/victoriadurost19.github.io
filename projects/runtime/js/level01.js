@@ -1,4 +1,4 @@
-/*eslint-disable no-unused-vars, no-unused-params, no-undef, no-extra-semi, no-empty-label, semi, no-shadow-global*/
+/*eslint-disable no-unused-vars, no-unused-params, no-undef, no-extra-semi, no-empty-label, semi, no-shadow-global, no-use-before-define*/
 /*globals createBox */
     var level01 = function (window) {
 
@@ -41,9 +41,13 @@
         obstacleImage.y = -15; 
         function createSawBlade(x,y){
             createBox(100,200);
-        {type: 'box', x;100, y;200;} 
+        {type: 'box', x;100, y;200;}
+        createSawBlade(3,3),
+        createSawBlade(5,6),
+        createSawBlade(7,9)
     }
-        
+
+       
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
     if((typeof process !== 'undefined') &&
         (typeof process.versions.node !== 'undefined')) {
