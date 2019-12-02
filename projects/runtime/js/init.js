@@ -1,3 +1,5 @@
+/*eslint-disable no-unused-vars, no-shadow-global, no-redeclare*/
+/*globals myObstacle */
 var init = function (window) {
     'use strict';
 
@@ -24,40 +26,40 @@ var init = function (window) {
         playerManager, 
         particleManager;
     
-    var debugHalleHitZones = false;
+    var debugHalleHitZones = true;
 
-    space = app.space;
-    rules = app.rules,
-    particleManager = opspark.makeParticleManager(app.stage);
-    ground = opspark.makeGround(app);
+        space = app.space;
+        rules = app.rules,
+        particleManager = opspark.makeParticleManager(app.stage);
+        ground = opspark.makeGround(app);
 
     // TODO 2 : add background
 var background = opspark.makeBackground(app,ground);
-view.addChild(background);
+        view.addChild(background);
     
     var help = draw.textfield('MOVES || up: jump | right: flying jump | down: duck | space: fire | q your mom!', 
         '20px Arial',
         '#ccc', 'left');
-    help.x = 10;
-    help.y = ground.y + ground.getBounds().height + 10;
-    view.addChild(help);
+        help.x = 10;
+        help.y = ground.y + ground.getBounds().height + 10;
+        view.addChild(help);
     
     window.opspark.makeSpriteSheet(data)
         .then(function (ss) {
-            spritesheet = ss;
-            halle = window.opspark.makeHalle(spritesheet, particleManager,debugHalleHitZones);
-            halle.x = halle.getBounds().width * 2;
-            halle.y = ground.y - halle.getBounds().height + 3;
-            app.addUpdateable(halle);
-            view.addChild(halle);
+        spritesheet = ss;
+        halle = window.opspark.makeHalle(spritesheet, particleManager,debugHalleHitZones);
+        halle.x = halle.getBounds().width * 2;
+        halle.y = ground.y - halle.getBounds().height + 3;
+        app.addUpdateable(halle);
+        view.addChild(halle);
             
-            playerManager = opspark.makePlayerManager(
-                halle, 
-                app, 
-                opspark.makeProjectileManager(view, space, particleManager));
+        playerManager = opspark.makePlayerManager(
+        halle, 
+        app, 
+        opspark.makeProjectileManager(view, space, particleManager));
             
-            app.addUpdateable(playerManager);
-            app.addUpdateable({update: update});
+        app.addUpdateable(playerManager);
+        app.addUpdateable({update: update});
         });
     
     view.addChild(fps);
@@ -72,17 +74,20 @@ view.addChild(background);
     }
     
     // TODO 1 : add a heads-up display to game
-    var hud = opspark.makeHud();
-    view.addChild(hud);
-    window.hud = hud;
-    // TODO 6 : create game manager
-    var game = opspark.createGameManager(app, hud)
-    opspark.runLevelInGame(game);
-};
+        var hud = opspark.makeHud();
+        view.addChild(hud);
+        window.hud = hud;
+        // TODO 6 : create game manager
+        var game = opspark.createGameManager(app, hud);
+        opspark.runLevelInGame(game);
+        
+        var obstacleImage = draw.bitmap('img/sawblade.png');
+        myObstacle.addChild(obstacleImage);
+        };
 
-// DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
-if((typeof process !== 'undefined') &&
-    (typeof process.versions.node !== 'undefined')) {
-    // here, export any references you need for tests //
-    module.exports = init;
-}
+    // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
+        if((typeof process !== 'undefined') &&
+        (typeof process.versions.node !== 'undefined')) {
+        // here, export any references you need for tests //
+        module.exports = init;
+        }

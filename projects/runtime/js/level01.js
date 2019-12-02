@@ -1,6 +1,6 @@
 /*eslint-disable no-unused-vars, no-unused-params, no-undef, no-extra-semi, no-empty-label, semi, no-shadow-global*/
 /*globals createBox */
-var level01 = function (window) {
+    var level01 = function (window) {
 
     window.opspark = window.opspark || {};
 
@@ -28,6 +28,7 @@ var level01 = function (window) {
         game.setDebugMode(true);
 
         // BEGIN EDITING YOUR CODE HERE
+        game.addGameItem(myObstacle); 
         var hitZoneSize = 25;
         var damageFromObstacle = 10; 
         var myObstacle = game.createObstacle(hitZoneSize, damageFromObstacle);
@@ -44,7 +45,7 @@ var level01 = function (window) {
     }
         
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
-if((typeof process !== 'undefined') &&
+    if((typeof process !== 'undefined') &&
         (typeof process.versions.node !== 'undefined')) {
             
         // here, export any references you need for tests //

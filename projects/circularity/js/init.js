@@ -1,3 +1,4 @@
+/*eslint-disable no-shadow-global */
 var init = function (window) {
     'use strict';
     var 
@@ -68,7 +69,7 @@ var init = function (window) {
             
             }
             // YOUR TODO 5 CODE ENDS HERE //////////////////////////
-        }
+        };
     
         function update() {
             // TODO 4 : Update the circle's position //
@@ -99,7 +100,7 @@ var init = function (window) {
         game.update = update;
         
         app.addUpdateable(window.opspark.game);
-    }
+    };
 };
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
