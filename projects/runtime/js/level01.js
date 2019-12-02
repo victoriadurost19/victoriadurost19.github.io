@@ -1,3 +1,5 @@
+/*eslint-disable no-unused-vars, no-unused-params, no-undef, no-extra-semi, no-empty-label, semi, no-shadow-global*/
+/*globals createBox */
 var level01 = function (window) {
 
     window.opspark = window.opspark || {};
@@ -38,13 +40,13 @@ var level01 = function (window) {
         obstacleImage.y = -15; 
         function createSawBlade(x,y){
             createBox(100,200);
-        {type: 'box', x:100, y:200}
-    }; 
-}
+        {type: 'box', x;100, y;200;} 
+    }
         
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
         (typeof process.versions.node !== 'undefined')) {
+            
         // here, export any references you need for tests //
-    module.exports = level01;
-}
+         module.exports = level01;
+    }
