@@ -12,7 +12,7 @@
         var space = app.space;
 
         /* increase the score within the heads-up display. Should be called
-           in response to some kind of collision event, either in 
+           in response to some kind of collision event, either in
            onPlayerCollision() or onProjectileCollision()
          */
         function increaseScore(amount) {
@@ -33,7 +33,7 @@
         }
 
         /* change the integry displayed in the hud. If the amount is positive
-           the integrity will increase, and if the amount is negative the 
+           the integrity will increase, and if the amount is negative the
            integrity will decrease. If the total integrity ever goes below zero
            then hallie dies and the game ends
          */
@@ -58,7 +58,7 @@
 
         hud.setIntegrity(100);
         hud.updateOf(10000);
-        
+
         /* Create a new game item of the given type and hit radius. Each game
            item is a empty createjs container. To draw something for a game item
            create shapes and/or bitmaps and add them to container via addChild()
@@ -73,21 +73,21 @@
            - rotationalVelocity : rotation around origin per frame (degrees)
 
            Once created, an item must be added via addGameItem() in order to show
-           on screen and be animated. 
+           on screen and be animated.
 
            If a game item collides with another object in the game, the callback
-           functions at the following properties will be invoked. 
+           functions at the following properties will be invoked.
 
            - onProjectileCollision
            - onPlayerCollision
 
-           By default, these functions do nothing. 
+           By default, these functions do nothing.
 
-           In response to a collision, you can call any of the following 
+           In response to a collision, you can call any of the following
            behaviors
 
-           - fadeOut() 
-           - shrink() 
+           - fadeOut()
+           - shrink()
            - flyTo()
 
            See documentation on these methods
@@ -102,15 +102,15 @@
                 }
                 body.collided = true;
                 if(otherBody.type == 'hitzone') {
-                    body.onPlayerCollision(body);    
+                    body.onPlayerCollision(body);
                 }
                 else if(otherBody.type == 'projectile') {
-                    body.onProjectileCollision(body);    
+                    body.onProjectileCollision(body);
                 }
             }
 
             /* Called when this game item is hit by one of halles projectiles
-               for the first time 
+               for the first time
              */
             body.onProjectileCollision = function(self) {
 
@@ -121,8 +121,8 @@
 
             }
 
-            /* animate this game item out of the game by fading out 
-               duration is in milliseconds 
+            /* animate this game item out of the game by fading out
+               duration is in milliseconds
             */
             body.fadeOut = function(duration) {
                 duration = duration || 100;
@@ -133,33 +133,33 @@
             }
 
             /* animate this game item out of the game by shrinking it to nothing
-               duration is in milliseconds 
+               duration is in milliseconds
             */
             body.shrink = function(duration) {
                 duration = duration || 100;
                 removeFromSpace(body);
                 createjs.Tween.get(body).to({scaleX: 0, scaleY: 0}, duration).call(function() {
                     removeGameItem(body);
-                }); 
+                });
             }
 
             /* animate this game item out of the game by moving it to a particular
                position
                x and y should be offscreen
-               duration is in milliseconds 
+               duration is in milliseconds
             */
             body.flyTo = function(x,y,duration) {
                 duration = duration || 100;
                 removeFromSpace(body);
                 createjs.Tween.get(body).to({x:x,y:y}, duration).call(function() {
                     removeGameItem(body);
-                }); 
+                });
             }
             return body;
         }
 
         /* add a game item and animate it according to the following properties
-            
+
          */
         function addGameItem(gameItem) {
             if(debugMode) {
@@ -177,8 +177,8 @@
             }
         }
 
-        /* remove a particular item from the game. Item will no longer be 
-           visible on screen. 
+        /* remove a particular item from the game. Item will no longer be
+           visible on screen.
         */
         function removeGameItem(gameItem) {
             var ix = space.indexOf(gameItem);
@@ -189,9 +189,9 @@
         }
 
         /* Convenience routine for creating a game item that:
-          
-           - moves at a fixed rate 
-           - cannot be destroyed 
+
+           - moves at a fixed rate
+           - cannot be destroyed
            - does a specified amount damage when colliding with player
          */
         function createObstacle(radius,damage) {
@@ -204,7 +204,7 @@
             return gameItem;
         }
 
-        /* must be set before call to playLevel with function that 
+        /* must be set before call to playLevel with function that
            create a game item when passed an object from gameItems
          */
         var gameItemFactory;
@@ -212,7 +212,7 @@
             gameItemFactory = factory;
         }
 
-        /* Improves performance by lazily creating objects defined in 
+        /* Improves performance by lazily creating objects defined in
            levelData
          */
         function playLevel(levelData) {
@@ -229,7 +229,7 @@
             var frameNo = 0;
 
             app.addUpdateable({update: function() {
-                
+
                 // lazily instantiate items just before the come onto the screen
                 // to improve performance
                 frameNo += 1;

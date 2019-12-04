@@ -8,14 +8,14 @@
     var createjs = window.createjs;
 
     window.opspark.runLevelInGame = function(game) {
-        // some useful constants 
+        // some useful constants
         var groundY = game.groundY;
 
         // this data will allow us to define all of the
         // behavior of our game
         var levelData = {
             name: "Robot Romp",
-            number: 1, 
+            number: 1,
             speed: -3,
             gameItems: [
                 {type: 'sawblade',x:200,y:groundY},
@@ -28,30 +28,29 @@
         game.setDebugMode(true);
 
         // BEGIN EDITING YOUR CODE HERE
-        game.addGameItem(myObstacle); 
         var hitZoneSize = 25;
-        var damageFromObstacle = 10; 
+        var damageFromObstacle = 10;
         var myObstacle = game.createObstacle(hitZoneSize, damageFromObstacle);
-        myObstacle.x = 500; 
+        myObstacle.x = 500;
         myObstacle.y = 300;
         game.addGameItem(myObstacle);
         var obstacleImage = draw.bitmap('img/sawblade.png');
         myObstacle.addChild(obstacleImage);
         obstacleImage.x = -10;
-        obstacleImage.y = -15; 
+        obstacleImage.y = -15;
+
         function createSawBlade(x,y){
-            createBox(100,200);
-        {type: 'box', x;100, y;200;}
-        createSawBlade(3,3),
-        createSawBlade(5,6),
-        createSawBlade(7,9)
+        }
+        createSawBlade(3,3);
+        createSawBlade(5,6);
+        createSawBlade(7,9);
     }
 
-       
+
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
     if((typeof process !== 'undefined') &&
         (typeof process.versions.node !== 'undefined')) {
-            
+
         // here, export any references you need for tests //
          module.exports = level01;
     }
