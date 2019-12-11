@@ -10,10 +10,10 @@
 	<!-- BEGIN CSS -->
 	<style>
 		/* TODO 1 */
-    
+
      <body class="board">
   <div class="box">?</div>
-</body> 
+</body>
 		.box {
 			width: 70px;
 			height: 70px;
@@ -43,31 +43,32 @@
 			// jQuery stuff setup for you
 			var box = jQuery('.box');
 			var boardWidth = jQuery('.board').width();
-	
-			// TODO 2 - Variable declarations 
+
+			// TODO 2 - Variable declarations
             var position;       // reference for the x-coordinate of our box
             var points;         // reference for the points displayed on the box
             var speed;          // reference for how fast the box moves
             var direction;     // reference for the direction the box is moving: 1 means right, -1 means left
-            
+
             position = 0;
-            points = 0;
-            speed = 10;
+            points = 10;
+            speed = 20;
             direction = 1;
-			
+
 			function update() {
 				// TODO 3 / 6 / 7 / 8
                  position += speed;    // increment position by speed on every update
-                 console.log("new position: " + position);				
+                 console.log("new position: " + position);
+                 box.css("left", position);
 			}
 
 
-			
+
 			function handleBoxClick() {
 				// TODO 4 / 5
                 points += 1;           // increase the point total
                 box.text(points);      // update the new points total displayed by the box
-				
+
 			}
 
 
