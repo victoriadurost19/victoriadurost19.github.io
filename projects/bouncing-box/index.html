@@ -11,9 +11,6 @@
 	<style>
 		/* TODO 1 */
 
-     <body class="board">
-  <div class="box">?</div>
-</body>
 		.box {
 			width: 70px;
 			height: 70px;
@@ -55,17 +52,28 @@
             speed = 20;
             direction = 1;
 
+            box.css("left", position);
+            box.text(points);
+
 			function update() {
 				// TODO 3 / 6 / 7 / 8
-                 position += speed;    // increment position by speed on every update
+                 position += speed*direction;    // increment position by speed on every update
                  console.log("new position: " + position);
                  box.css("left", position);
+
+                 if(position > boardWidth){
+                    direction = -1;
+                 } else if (position < 0){
+                   direction = 1;
+                 }
 			}
 
 
 
 			function handleBoxClick() {
 				// TODO 4 / 5
+                speed += 5;
+                position = 0;
                 points += 1;           // increase the point total
                 box.text(points);      // update the new points total displayed by the box
 
