@@ -39,14 +39,12 @@ var init = function (window) {
         drawCircle();
         drawCircle();
         drawCircle();
-        drawCircle();
-        drawCircle();
-        drawCircle();
-        drawCircle();
-        drawCircle();
-        drawCircle();
-        drawCircle();
-        drawCircle();
+
+        var loopCompleted = 1;
+        while(loopCompleted < 100){
+            loopCompleted++;
+            drawCircle();
+        }
         view.addChild(fps);
         app.addUpdateable(fps);
 
@@ -83,14 +81,7 @@ var init = function (window) {
             physikz.updatePosition(circles[2]);
             physikz.updatePosition(circles[3]);
             physikz.updatePosition(circles[4]);
-            physikz.updatePosition(circles[5]);
-            physikz.updatePosition(circles[6]);
-            physikz.updatePosition(circles[7]);
-            physikz.updatePosition(circles[8]);
-            physikz.updatePosition(circles[9]);
-            physikz.updatePosition(circles[10]);
-            physikz.updatePosition(circles[11]);
-            physikz.updatePosition(circles[12]);
+
 
 
             // TODO 5 : Call game.checkCirclePosition on your circles.
@@ -99,14 +90,15 @@ var init = function (window) {
             game.checkCirclePosition(circles[2]);
             game.checkCirclePosition(circles[3]);
             game.checkCirclePosition(circles[4]);
-            game.checkCirclePosition(circles[5]);
-            game.checkCirclePosition(circles[6]);
-            game.checkCirclePosition(circles[7]);
-            game.checkCirclePosition(circles[8]);
-            game.checkCirclePosition(circles[9]);
-            game.checkCirclePosition(circles[10]);
-            game.checkCirclePosition(circles[11]);
-            game.checkCirclePosition(circles[12]);
+
+
+
+            //TODO 8 : Irerate over the array
+            for(var i = 0; i < circles.length; i++){
+                var eachValue = circles[i];
+                  physikz.updatePosition(eachValue);
+                  game.checkCirclePosition(eahcValue);
+            }
         }
 
         ////////////////////////////////////////////////////////////////////
