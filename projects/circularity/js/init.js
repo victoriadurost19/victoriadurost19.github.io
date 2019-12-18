@@ -101,10 +101,25 @@ var init = function (window) {
             }
         }
 
+     if( circles.x < canvas.width){
+         circle.x = 0;
+     }
+     if ( circle.x > 0){
+         circle.x = canvas.width;
+     }
+     if ( circle.y < 0){
+         circle.y = canvas.height;
+     }
+     if(circles.y > canvas.height){
+         circle.y = 0
+     }
         ////////////////////////////////////////////////////////////////////
         // NO CODE BELOW HERE                                             //
         ////////////////////////////////////////////////////////////////////
 
+        view.addChild(fps);
+        app.addUpdateable(fps);
+        
         game.circle = circle;
         game.circles = circles;
         game.drawCircle = drawCircle;
